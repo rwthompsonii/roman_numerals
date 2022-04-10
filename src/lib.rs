@@ -24,11 +24,11 @@ pub fn to_roman(number: isize) -> Result<String, String> {
     }
 
     let thousands = number / 1000;
-    let number = number - (thousands * 1000);
+    let number = number % 1000;
     let hundreds = number / 100;
-    let number = number - (hundreds * 100);
+    let number = number % 100;
     let tens = number / 10;
-    let ones = number - (tens * 10);
+    let ones = number % 10;
 
     let thousands_str = match thousands {
         0 => "".to_string(),
